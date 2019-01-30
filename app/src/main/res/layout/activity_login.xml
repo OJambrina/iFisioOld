@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_bg"
+    android:id="@+id/login_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/login_bg"
@@ -21,4 +21,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/login_box" />
+
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="@+id/login_box"
+        app:layout_constraintStart_toStartOf="@+id/login_box"
+        app:layout_constraintTop_toTopOf="@+id/login_box"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/login_box"
+        app:layout_constraintStart_toEndOf="@+id/login_imgusr"
+        app:layout_constraintTop_toBottomOf="@+id/login_logo" />
+
+    <EditText
+        android:id="@+id/login_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/login_box"
+        app:layout_constraintStart_toEndOf="@+id/login_imgpwd"
+        app:layout_constraintTop_toBottomOf="@+id/login_email" />
+
+    <ImageView
+        android:id="@+id/login_imgusr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_email"
+        app:layout_constraintStart_toStartOf="@+id/login_box"
+        app:layout_constraintTop_toTopOf="@+id/login_email"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <ImageView
+        android:id="@+id/login_imgpwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_pwd"
+        app:layout_constraintStart_toStartOf="@+id/login_box"
+        app:layout_constraintTop_toTopOf="@+id/login_pwd"
+        app:srcCompat="@android:drawable/ic_lock_lock" />
+
+    <CheckBox
+        android:id="@+id/login_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/remember"
+        app:layout_constraintStart_toStartOf="@+id/login_box"
+        app:layout_constraintTop_toBottomOf="@+id/login_pwd" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="@+id/login_box"
+        app:layout_constraintStart_toStartOf="@+id/login_box"
+        app:layout_constraintTop_toBottomOf="@+id/login_remember" />
+
+    <TextView
+        android:id="@+id/login_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/forgotpwd"
+        app:layout_constraintStart_toStartOf="@+id/login_box"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
 </android.support.constraint.ConstraintLayout>
