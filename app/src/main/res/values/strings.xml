@@ -11,4 +11,6 @@
     <string name="remember">Recordarme</string>
     <string name="login">Acceder</string>
     <string name="forgotpwd">¿Olvidaste tu contraseña?</string>
+    <string name="register">Registro</string>
+    <string name="separator">|</string>
 </resources>
