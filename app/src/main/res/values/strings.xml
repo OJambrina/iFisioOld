@@ -13,4 +13,8 @@
     <string name="forgotpwd">¿Olvidaste tu contraseña?</string>
     <string name="register">Registro</string>
     <string name="separator">|</string>
+    <string name="patients">Pacientes</string>
+    <string name="database">Base de Datos</string>
+    <string name="profile">Perfil</string>
+    <string name="schedule">Agenda</string>
 </resources>
