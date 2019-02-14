@@ -3,6 +3,9 @@ package com.ojambrina.ifisio;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +15,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, FirebaseController.FirebaseResponse {
+
+    UsuarioAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        adapter = new UsuarioAdapter(this, null);
+        recyclerView.setAdapter(adapter);
+
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(manager);
+
+        FirebaseController controller = new FirebaseController(this);
+        controller.getUserList();
     }
 
     @Override
@@ -97,5 +117,20 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onSuccess(List<Usuario> users) {
+        adapter.setData(users);
+    }
+
+    @Override
+    public void onCanceled() {
+        Toast.makeText(this, "Fallo al conectar al servidor", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFailure(Exception e) {
+        Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
     }
 }

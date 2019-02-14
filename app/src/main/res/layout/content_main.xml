@@ -10,10 +10,8 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.GridLayout
-        android:id="@+id/gridLayout"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v7.widget.GridLayout>
+        android:layout_height="match_parent" />
 </LinearLayout>
