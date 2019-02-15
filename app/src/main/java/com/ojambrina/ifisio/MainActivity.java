@@ -22,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FirebaseController.FirebaseResponse {
+        implements NavigationView.OnNavigationItemSelectedListener, FirebaseController.FirebaseResponse, UsuarioAdapter.OnClickListener {
 
     UsuarioAdapter adapter;
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        adapter = new UsuarioAdapter(this, null);
+        adapter = new UsuarioAdapter(this, null, this);
         recyclerView.setAdapter(adapter);
 
         GridLayoutManager manager = new GridLayoutManager(this, 2);
@@ -128,5 +128,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFailure(Exception e) {
         Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(Usuario user) {
+        Toast.makeText(this, "Usuario"+user.getNombre(), Toast.LENGTH_LONG).show();
     }
 }
