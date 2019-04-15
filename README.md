@@ -1,3 +1,3 @@
 # iFisio
 
-Aplicación para JeyJS
+Proyecto de fin de curso CFGS DAM
