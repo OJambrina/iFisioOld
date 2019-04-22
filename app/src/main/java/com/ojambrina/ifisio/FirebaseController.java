@@ -27,10 +27,8 @@ public class FirebaseController {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<Usuario> users = queryDocumentSnapshots.toObjects(Usuario.class);
-                if (users != null) {
-                    Log.d("FIREBASE CONTROLLER", users.size()+"");
-                    handler.onSuccess(users);
-                }
+                Log.d("FIREBASE CONTROLLER", users.size()+"");
+                handler.onSuccess(users);
             }
         }).addOnCanceledListener(new OnCanceledListener() {
             @Override

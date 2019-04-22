@@ -30,4 +30,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="join">Entrar</string>
+    <string name="have_account">¿Ya tienes cuenta?</string>
 </resources>
